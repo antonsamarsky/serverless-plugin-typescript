@@ -15,8 +15,10 @@ declare namespace Serverless {
       functions: {
         [key: string]: Serverless.Function
       }
+      layers: { [key: string]: Serverless.Layer }
       package: Serverless.Package
       getAllFunctions(): string[]
+      getAllLayers: () => string[]
     }
 
     pluginManager: PluginManager
@@ -26,6 +28,11 @@ declare namespace Serverless {
     function?: string
     watch?: boolean
     extraServicePath?: string
+  }
+
+  interface Layer {
+    handler: string
+    package: Serverless.Package
   }
 
   interface Function {
